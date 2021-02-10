@@ -18,12 +18,12 @@ class GuestAdapter : RecyclerView.Adapter<GuestViewHolder>() {
         return GuestViewHolder(item, mListener)
     }
 
-    override fun onBindViewHolder(holder: GuestViewHolder, position: Int) {
-        holder.bind(mGuestList[position])
-    }
-
     override fun getItemCount(): Int {
         return mGuestList.count()
+    }
+
+    override fun onBindViewHolder(holder: GuestViewHolder, position: Int) {
+        holder.bind(mGuestList[position])
     }
 
     fun updateGuests(list: List<GuestModel>) {

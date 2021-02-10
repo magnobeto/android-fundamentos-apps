@@ -49,15 +49,12 @@ class AllGuestsFragment : Fragment() {
                 bundle.putInt(GuestConstants.GUESTID, id)
 
                 intent.putExtras(bundle)
-
-
                 startActivity(intent)
             }
 
         }
         mAdapter.attachListener(mListener)
-
-        observer()
+        observe()
 
         return root
     }
@@ -67,7 +64,7 @@ class AllGuestsFragment : Fragment() {
         allGuestsViewModel.load()
     }
 
-    private fun observer() {
+    private fun observe() {
         allGuestsViewModel.guestList.observe(viewLifecycleOwner, Observer {
             mAdapter.updateGuests(it)
         })
