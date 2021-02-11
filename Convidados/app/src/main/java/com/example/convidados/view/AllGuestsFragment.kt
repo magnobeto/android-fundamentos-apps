@@ -14,11 +14,11 @@ import com.example.convidados.R
 import com.example.convidados.service.constants.GuestConstants
 import com.example.convidados.view.adapter.GuestAdapter
 import com.example.convidados.view.listener.GuestListener
-import com.example.convidados.viewmodel.AllGuestsViewModel
+import com.example.convidados.viewmodel.GuestsViewModel
 
 class AllGuestsFragment : Fragment() {
 
-    private lateinit var mViewModel: AllGuestsViewModel
+    private lateinit var mViewModel: GuestsViewModel
     private val mAdapter: GuestAdapter = GuestAdapter()
     private lateinit var mListener: GuestListener
 
@@ -28,7 +28,7 @@ class AllGuestsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         mViewModel =
-            ViewModelProvider(this).get(AllGuestsViewModel::class.java)
+            ViewModelProvider(this).get(GuestsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_all_guests, container, false)
 
         //RecyclerView
@@ -54,7 +54,7 @@ class AllGuestsFragment : Fragment() {
 
             override fun onDelete(id: Int) {
                 mViewModel.delete(id)
-                mViewModel.load()
+                mViewModel.load(GuestConstants.FILTER.EMPTY)
             }
 
         }
@@ -66,7 +66,7 @@ class AllGuestsFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        mViewModel.load()
+        mViewModel.load(GuestConstants.FILTER.EMPTY)
     }
 
     private fun observe() {
