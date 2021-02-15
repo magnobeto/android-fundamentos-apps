@@ -27,4 +27,7 @@
     <string name="remover">Remover</string>
     <string name="removido_com_sucesso">Convidado removido com sucesso.</string>
     <string name="total">Total</string>
+    <string name="confirm">Presente</string>
+    <string name="absent">Ausente</string>
+    <string name="save">Salvar</string>
 </resources>

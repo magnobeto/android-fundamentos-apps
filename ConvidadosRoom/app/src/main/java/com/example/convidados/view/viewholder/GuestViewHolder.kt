@@ -8,6 +8,7 @@ import com.example.convidados.R
 import com.example.convidados.service.model.GuestModel
 import com.example.convidados.view.listener.GuestListener
 
+
 class GuestViewHolder(itemView: View, private val listener: GuestListener) :
     RecyclerView.ViewHolder(itemView) {
 
@@ -24,9 +25,9 @@ class GuestViewHolder(itemView: View, private val listener: GuestListener) :
                 .setTitle(R.string.remocao_convidado)
                 .setMessage(R.string.deseja_remover)
                 .setPositiveButton(R.string.remover) { dialog, which ->
-                    listener.onDelete(guest.id)
+                    listener.onDelete(guest)
                 }
-                .setNeutralButton(R.string.confirmacao, null)
+                .setNeutralButton(R.string.cancelar, null)
                 .show()
 
             true

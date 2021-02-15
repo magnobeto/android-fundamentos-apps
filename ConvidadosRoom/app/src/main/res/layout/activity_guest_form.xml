@@ -20,6 +20,7 @@
         android:id="@+id/edit_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:inputType="text"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_name" />
@@ -28,10 +29,10 @@
         android:id="@+id/text_confirmation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Confirmação"
+        android:text="@string/confirmacao"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_name"/>
+        app:layout_constraintTop_toBottomOf="@+id/edit_name" />
 
     <RadioGroup
         android:layout_width="0dp"
@@ -44,13 +45,13 @@
             android:id="@+id/radio_presence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Presente" />
+            android:text="@string/confirm" />
 
         <RadioButton
             android:id="@+id/radio_absent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ausente" />
+            android:text="@string/absent" />
 
     </RadioGroup>
 
@@ -58,7 +59,7 @@
         android:id="@+id/button_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Salvar"
+        android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.convidados.R
 import com.example.convidados.service.constants.GuestConstants
+import com.example.convidados.service.model.GuestModel
 import com.example.convidados.view.adapter.GuestAdapter
 import com.example.convidados.view.listener.GuestListener
 import com.example.convidados.viewmodel.GuestsViewModel
@@ -52,8 +53,8 @@ class AbsentsFragment : Fragment() {
                 startActivity(intent)
             }
 
-            override fun onDelete(id: Int) {
-                mViewModel.delete(id)
+            override fun onDelete(guest: GuestModel) {
+                mViewModel.delete(guest)
                 mViewModel.load(GuestConstants.FILTER.ABSENT)
             }
 
