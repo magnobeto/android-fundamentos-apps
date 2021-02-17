@@ -9,7 +9,7 @@ class RetrofitClient private constructor() {
     companion object {
 
         private lateinit var retrofit: Retrofit
-        private val baseUrl = "http://devmasterteam.com/CursoAndroidAPI/Authentication/"
+        private val baseUrl = "http://devmasterteam.com/CursoAndroidAPI/"
 
         private fun getRetrofitInstance(): Retrofit {
 
