@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         mViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
         // Inicializa eventos
-        setListeners();
+        setListeners()
         observe()
 
         // Verifica se usuário está logado
@@ -57,10 +57,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
      */
     private fun observe() {
         mViewModel.login.observe(this, Observer { login ->
-            if (login) {
+            if (login.success()) {
                 startActivity(Intent(this, MainActivity::class.java))
             } else {
-                Toast.makeText(this, "Erro ao tentar Login", Toast.LENGTH_SHORT).show()
+                val message = login.failure()
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             }
         })
     }
