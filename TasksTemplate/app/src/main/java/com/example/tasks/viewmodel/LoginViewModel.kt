@@ -29,7 +29,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
      * Faz login usando API
      */
     fun doLogin(email: String, password: String) {
-        mPersonRepository.login(email, password, object : APIListener {
+        mPersonRepository.login(email, password, object : APIListener<HeaderModel> {
             override fun onSuccess(model: HeaderModel) {
 
                 mSharedPreferences.store(TaskConstants.SHARED.TOKEN_KEY, model.token)
