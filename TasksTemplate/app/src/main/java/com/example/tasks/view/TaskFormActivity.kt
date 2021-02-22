@@ -52,7 +52,7 @@ class TaskFormActivity : AppCompatActivity(),
     private fun loadDataFromActivity() {
         val bundle = intent.extras
         if (bundle != null) {
-            val mTaskId = bundle.getInt(TaskConstants.BUNDLE.TASKID)
+            mTaskId = bundle.getInt(TaskConstants.BUNDLE.TASKID)
             mViewModel.load(mTaskId)
         }
     }

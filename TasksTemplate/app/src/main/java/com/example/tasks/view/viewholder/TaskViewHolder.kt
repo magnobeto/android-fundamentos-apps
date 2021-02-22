@@ -58,7 +58,7 @@ class TaskViewHolder(itemView: View, val listener: TaskListener) :
                 .setTitle(R.string.remocao_de_tarefa)
                 .setMessage(R.string.remover_tarefa)
                 .setPositiveButton(R.string.sim) { dialog, which ->
-                    // listener.onDeleteClick(task.id)
+                    listener.onDeleteClick(task.id)
                 }
                 .setNeutralButton(R.string.cancelar, null)
                 .show()
