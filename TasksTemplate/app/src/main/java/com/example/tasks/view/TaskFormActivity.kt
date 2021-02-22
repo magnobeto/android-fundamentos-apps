@@ -54,6 +54,7 @@ class TaskFormActivity : AppCompatActivity(),
         if (bundle != null) {
             mTaskId = bundle.getInt(TaskConstants.BUNDLE.TASKID)
             mViewModel.load(mTaskId)
+            button_save.text = getString(R.string.update_task)
         }
     }
 
@@ -100,11 +101,20 @@ class TaskFormActivity : AppCompatActivity(),
 
         mViewModel.validation.observe(this, androidx.lifecycle.Observer { validation ->
             if (validation.success()) {
-                Toast.makeText(this, "Sucesso!", Toast.LENGTH_SHORT).show()
+                if (mTaskId == 0) {
+                    toast(getString(R.string.task_created))
+                } else {
+                    toast(getString(R.string.task_updated))
+                }
+                finish()
             } else {
-                Toast.makeText(this, validation.failure(), Toast.LENGTH_SHORT).show()
+                toast(validation.failure())
             }
         })
+    }
+
+    private fun toast(str: String) {
+        Toast.makeText(this, str, Toast.LENGTH_SHORT).show()
     }
 
     private fun getIndex(priorityId: Int): Int {
