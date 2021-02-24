@@ -27,6 +27,7 @@ class AllTasksViewModel(application: Application) : AndroidViewModel(application
 
             override fun onFailure(str: String) {
                 mList.value = listOf()
+                mValidation.value = ValidationListener(str)
             }
         })
     }
