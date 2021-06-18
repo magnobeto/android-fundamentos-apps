@@ -1,28 +1,31 @@
 package com.example.componentes
 
 import android.os.Bundle
+import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.componentes.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
-    private lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(R.layout.activity_main)
 
-        binding.buttonToast.setOnClickListener(this)
+        setListeners()
     }
 
     override fun onClick(view: View) {
         when (view.id) {
             R.id.button_toast -> {
-               val toast = Toast.makeText(this, "TOAST", Toast.LENGTH_LONG)
+                val toast = Toast.makeText(this, "TOAST", Toast.LENGTH_LONG)
+                toast.setGravity(Gravity.TOP, 0, 260)
+
+                val layout = LayoutInflater.from(this).inflate(R.layout.toast_layout, null)
+                toast.view = layout
+
                 toast.show()
             }
         }
@@ -30,5 +33,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun toast(str: String) {
         Toast.makeText(this, str, Toast.LENGTH_LONG).show()
+    }
+
+    private fun setListeners() {
+        findViewById<Button>(R.id.button_toast).setOnClickListener(this)
     }
 }
