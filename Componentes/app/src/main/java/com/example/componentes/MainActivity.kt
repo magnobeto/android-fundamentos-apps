@@ -1,5 +1,6 @@
 package com.example.componentes
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -33,6 +34,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.button_snack -> {
                 val view = findViewById<LinearLayout>(R.id.linear_root)
                 val snack = Snackbar.make(view, "Snack", Snackbar.LENGTH_LONG)
+
+                snack.setAction("Desfazer", View.OnClickListener {
+                    toast("Desfeito!")
+                })
+
+                snack.setActionTextColor(Color.BLUE)
+                snack.setBackgroundTint(Color.GRAY)
+
+
                 snack.show()
             }
         }
