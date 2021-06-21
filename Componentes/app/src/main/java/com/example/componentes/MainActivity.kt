@@ -5,8 +5,10 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -28,6 +30,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
                 toast.show()
             }
+            R.id.button_snack -> {
+                val view = findViewById<LinearLayout>(R.id.linear_root)
+                val snack = Snackbar.make(view, "Snack", Snackbar.LENGTH_LONG)
+                snack.show()
+            }
         }
     }
 
@@ -37,5 +44,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun setListeners() {
         findViewById<Button>(R.id.button_toast).setOnClickListener(this)
+        findViewById<Button>(R.id.button_snack).setOnClickListener(this)
     }
 }
