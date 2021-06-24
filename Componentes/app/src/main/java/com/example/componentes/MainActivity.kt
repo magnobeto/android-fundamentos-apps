@@ -9,7 +9,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +45,34 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
                 snack.show()
             }
+            R.id.button_get_spinner -> {
+                val spinner = findViewById<Spinner>(R.id.spinner_static)
+
+                val selectItem = spinner.selectedItem
+                val selectItemId = spinner.selectedItemId
+                val selectItemPosition = spinner.selectedItemPosition
+
+                toast("Position : $selectItemId: $selectItem")
+
+            }
+            R.id.button_set_spinner -> {
+                val spinner = findViewById<Spinner>(R.id.spinner_static)
+                spinner.setSelection(2)
+            }
         }
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        when(parent?.id) {
+            R.id.spinner_static -> {
+                toast(parent?.getItemAtPosition(position).toString())
+            }
+        }
+
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+        toast("nothing ")
     }
 
     private fun loadSpinner() {
@@ -56,11 +83,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun toast(str: String) {
-        Toast.makeText(this, str, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, str, Toast.LENGTH_SHORT).show()
     }
 
     private fun setListeners() {
         findViewById<Button>(R.id.button_toast).setOnClickListener(this)
         findViewById<Button>(R.id.button_snack).setOnClickListener(this)
+        findViewById<Button>(R.id.button_get_spinner).setOnClickListener(this)
+        findViewById<Button>(R.id.button_set_spinner).setOnClickListener(this)
+        findViewById<Spinner>(R.id.spinner_static).onItemSelectedListener = this
+        findViewById<Spinner>(R.id.spinner_dynamic).onItemSelectedListener = this
     }
 }
