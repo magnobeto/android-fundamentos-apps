@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 
@@ -18,6 +16,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_main)
 
         setListeners()
+
+        loadSpinner()
     }
 
     override fun onClick(view: View) {
@@ -46,6 +46,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 snack.show()
             }
         }
+    }
+
+    private fun loadSpinner() {
+        val mList = listOf("Gramas", "Kg", "Arroba", "Tonelada")
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, mList)
+        val spinner = findViewById<Spinner>(R.id.spinner_dynamic)
+        spinner.adapter = adapter
     }
 
     private fun toast(str: String) {
