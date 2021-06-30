@@ -25,10 +25,10 @@
 
     <Spinner
         android:id="@+id/spinner_static"
-        android:entries="@array/spinner_values"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:entries="@array/spinner_values" />
 
     <Spinner
         android:id="@+id/spinner_dynamic"
@@ -41,24 +41,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        
+
         <Button
             android:id="@+id/button_get_spinner"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Obter Spinner"/>
+            android:text="Obter Spinner" />
 
         <Button
             android:id="@+id/button_set_spinner"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Atribuir Spinner"/>
+            android:text="Atribuir Spinner" />
 
 
     </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:max="50" />
 
 </LinearLayout>
