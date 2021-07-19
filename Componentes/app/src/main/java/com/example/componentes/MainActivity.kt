@@ -112,6 +112,12 @@ class MainActivity : AppCompatActivity(),
                 toast("Switch: ${if (isChecked) "True" else "False"}")
                 // checkBox.isChecked = true
             }
+            R.id.radio_on -> {
+                toast("Switch: ${if (isChecked) "True" else "False"}")
+            }
+            R.id.radio_off -> {
+                toast("Switch: ${if (isChecked) "True" else "False"}")
+            }
         }
     }
 
@@ -138,5 +144,7 @@ class MainActivity : AppCompatActivity(),
         findViewById<SeekBar>(R.id.seekbar).setOnSeekBarChangeListener(this)
         findViewById<SwitchCompat>(R.id.switch_on_off).setOnCheckedChangeListener(this)
         findViewById<CheckBox>(R.id.checkbox_on_off).setOnCheckedChangeListener(this)
+        findViewById<RadioButton>(R.id.radio_on).setOnCheckedChangeListener(this)
+        findViewById<RadioButton>(R.id.radio_off).setOnCheckedChangeListener(this)
     }
 }
