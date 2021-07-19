@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity(),
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         when (parent?.id) {
             R.id.spinner_static -> {
-                toast(parent?.getItemAtPosition(position).toString())
+                toast(parent.getItemAtPosition(position).toString())
             }
         }
     }
@@ -102,10 +102,15 @@ class MainActivity : AppCompatActivity(),
 
     override fun onCheckedChanged(buttonView: CompoundButton, isChecked: Boolean) {
         val switch = findViewById<SwitchCompat>(R.id.switch_on_off)
+        val checkBox = findViewById<CheckBox>(R.id.checkbox_on_off)
         when (buttonView.id) {
             R.id.switch_on_off -> {
                 toast("Switch: ${if (isChecked) "True" else "False"}")
                 // switch.isChecked = true
+            }
+            R.id.checkbox_on_off -> {
+                toast("Switch: ${if (isChecked) "True" else "False"}")
+                // checkBox.isChecked = true
             }
         }
     }
@@ -132,5 +137,6 @@ class MainActivity : AppCompatActivity(),
         findViewById<Spinner>(R.id.spinner_dynamic).onItemSelectedListener = this
         findViewById<SeekBar>(R.id.seekbar).setOnSeekBarChangeListener(this)
         findViewById<SwitchCompat>(R.id.switch_on_off).setOnCheckedChangeListener(this)
+        findViewById<CheckBox>(R.id.checkbox_on_off).setOnCheckedChangeListener(this)
     }
 }

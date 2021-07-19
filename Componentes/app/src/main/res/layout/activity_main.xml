@@ -73,13 +73,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="Valor seekbar: 0"/>
+        android:text="Valor seekbar: 0" />
 
     <LinearLayout
         android:id="@+id/linear_button_seek"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/button_get_seekbar"
@@ -102,8 +102,16 @@
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switch_on_off"
-        android:layout_marginTop="16dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
+
+    <CheckBox
+        android:id="@+id/checkbox_on_off"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:checked="false"
+        android:text="On / Of" />
 
 </LinearLayout>
