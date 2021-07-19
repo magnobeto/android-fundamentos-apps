@@ -7,12 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SwitchCompat
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity(),
     View.OnClickListener,
     AdapterView.OnItemSelectedListener,
-    SeekBar.OnSeekBarChangeListener {
+    SeekBar.OnSeekBarChangeListener,
+    CompoundButton.OnCheckedChangeListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,11 +94,20 @@ class MainActivity : AppCompatActivity(),
                 toast(parent?.getItemAtPosition(position).toString())
             }
         }
-
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
         toast("nothing ")
+    }
+
+    override fun onCheckedChanged(buttonView: CompoundButton, isChecked: Boolean) {
+        val switch = findViewById<SwitchCompat>(R.id.switch_on_off)
+        when (buttonView.id) {
+            R.id.switch_on_off -> {
+                toast("Switch: ${if (isChecked) "True" else "False"}")
+                // switch.isChecked = true
+            }
+        }
     }
 
     private fun loadSpinner() {
@@ -120,5 +131,6 @@ class MainActivity : AppCompatActivity(),
         findViewById<Spinner>(R.id.spinner_static).onItemSelectedListener = this
         findViewById<Spinner>(R.id.spinner_dynamic).onItemSelectedListener = this
         findViewById<SeekBar>(R.id.seekbar).setOnSeekBarChangeListener(this)
+        findViewById<SwitchCompat>(R.id.switch_on_off).setOnCheckedChangeListener(this)
     }
 }
