@@ -68,4 +68,36 @@
         android:layout_marginTop="32dp"
         android:max="50" />
 
+    <TextView
+        android:id="@+id/text_seekbar_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Valor seekbar: 0"/>
+
+    <LinearLayout
+        android:id="@+id/linear_button_seek"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/button_get_seekbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:text="Obter Seekbar" />
+
+        <Button
+            android:id="@+id/button_set_seekbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:text="Atribuir Seekbar" />
+
+
+    </LinearLayout>
+
 </LinearLayout>

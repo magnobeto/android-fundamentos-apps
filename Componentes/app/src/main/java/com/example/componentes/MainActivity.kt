@@ -9,7 +9,10 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 
-class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSelectedListener {
+class MainActivity : AppCompatActivity(),
+    View.OnClickListener,
+    AdapterView.OnItemSelectedListener,
+    SeekBar.OnSeekBarChangeListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,11 +62,32 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
                 val spinner = findViewById<Spinner>(R.id.spinner_static)
                 spinner.setSelection(2)
             }
+            R.id.button_get_seekbar -> {
+                val seekbar = findViewById<SeekBar>(R.id.seekbar)
+                toast("Seekbar: ${seekbar.progress}")
+            }
+            R.id.button_set_seekbar -> {
+                val seekbar = findViewById<SeekBar>(R.id.seekbar)
+                seekbar.progress = 15
+            }
         }
     }
 
+    override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+        var textView = findViewById<TextView>(R.id.text_seekbar_value)
+        textView.text = "Valor seekbar: $progress"
+    }
+
+    override fun onStartTrackingTouch(seekBar: SeekBar?) {
+        toast("Track started")
+    }
+
+    override fun onStopTrackingTouch(seekBar: SeekBar?) {
+        toast("Track stoped")
+    }
+
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        when(parent?.id) {
+        when (parent?.id) {
             R.id.spinner_static -> {
                 toast(parent?.getItemAtPosition(position).toString())
             }
@@ -91,7 +115,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
         findViewById<Button>(R.id.button_snack).setOnClickListener(this)
         findViewById<Button>(R.id.button_get_spinner).setOnClickListener(this)
         findViewById<Button>(R.id.button_set_spinner).setOnClickListener(this)
+        findViewById<Button>(R.id.button_get_seekbar).setOnClickListener(this)
+        findViewById<Button>(R.id.button_set_seekbar).setOnClickListener(this)
         findViewById<Spinner>(R.id.spinner_static).onItemSelectedListener = this
         findViewById<Spinner>(R.id.spinner_dynamic).onItemSelectedListener = this
+        findViewById<SeekBar>(R.id.seekbar).setOnSeekBarChangeListener(this)
     }
 }
