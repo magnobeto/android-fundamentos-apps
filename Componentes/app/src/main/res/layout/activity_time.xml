@@ -14,4 +14,37 @@
         android:layout_gravity="center_horizontal"
         android:text="DatePicker" />
 
+    <TimePicker
+        android:id="@+id/timepicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp" />
+
+    <LinearLayout
+        android:id="@+id/linear_button_time_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_get_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:text="Obter Time" />
+
+        <Button
+            android:id="@+id/button_set_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:text="Atribuir Time" />
+
+
+    </LinearLayout>
+
 </LinearLayout>
