@@ -47,4 +47,25 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/progress_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ProgressBar
+            android:id="@+id/progress_circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ProgressBar
+            android:id="@+id/progress_line"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:indeterminate="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
 </LinearLayout>

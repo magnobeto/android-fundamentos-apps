@@ -4,10 +4,7 @@ import android.app.DatePickerDialog
 import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.DatePicker
-import android.widget.TimePicker
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import java.text.SimpleDateFormat
 import java.util.*
@@ -39,6 +36,10 @@ class TimeActivity :
                 DatePickerDialog(this, this, year, month, day).show()
             }
             R.id.button_get_time -> {
+
+                val progressBar = findViewById<ProgressBar>(R.id.progress_line)
+                progressBar.visibility = View.GONE
+
                 val timePicker = findViewById<TimePicker>(R.id.timepicker)
 
                 if (Build.VERSION.SDK_INT >= 23) {
